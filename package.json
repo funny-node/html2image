@@ -1,6 +1,7 @@
 {
   "name": "html2image",
   "dependencies": {
+    "axios": "^0.19.0",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
     "pm2": "^3.5.1",
