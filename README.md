@@ -20,7 +20,9 @@ $ npm start
 
 ## 使用
 
-需提供三个参数
+服务启动后，默认接口地址即为 `ip:8888`，接受 post 请求
+
+post 请求对象需提供三个参数
 
 * `html` `{String}` 富文本 html 字符串
 * `width` `{Number}` 需要生成的图片宽度
