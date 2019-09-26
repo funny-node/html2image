@@ -1,0 +1,12 @@
+{
+  "name": "html2image",
+  "dependencies": {
+    "koa": "^2.8.1",
+    "koa-bodyparser": "^4.2.1",
+    "pm2": "^3.5.1",
+    "puppeteer": "^1.20.0"
+  },
+  "scripts": {
+    "start": "pm2 start index.js --name html2image"
+  }
+}
