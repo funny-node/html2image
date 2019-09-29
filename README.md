@@ -32,3 +32,12 @@ post 请求对象需提供三个参数
 
 
 具体使用方式可查看 example 文件夹
+
+## CentOS 里部署
+
+如需要在 CentOS 里部署，我遇到的几个坑如下：
+
+1. `npm install` 在下载 puppeteer 的某个过程会提示没有权限，尝试用 `sudo npm install`
+2. 用 pm2 启动服务后，马上 error，查看 pm2 log，是因为 CentOS 部署需要安装额外的模块，参考 [这里](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix)，我将其列出的 Dependencies 全部用 yum 安装后解决（某些教程可能会让你用 `ldd` 命令查看缺失的模块，但是 **这里例出的名称不一定就是直接可用来安装的名称**，具体查看 [这篇文章](https://github.com/wayou/wayou.github.io/issues/48)）
+3. 继续报错，提示需要加上 `--no-sandbox`，参考 [这里](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#setting-up-chrome-linux-sandbox)
+4. 截止目前应该可以正常截图了，但是少部分中文会无法显示，参考 [给 CentOS 安装中文字体](https://fbd.intelleeegooo.cc/install-chinese-font-on-centos/)（[备用](https://www.jianshu.com/p/f2ba4f5b8f36)）（有的服务器可能根本没有安装中文，就应该先安装中文，但是我的情况是中文已经安装过了，可以用 `locale` 查看安装的语言）

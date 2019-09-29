@@ -10,7 +10,7 @@ app.use(async ctx => {
   const page = await browser.newPage()
   try {
     await page.setContent(html)
-    await page.setViewport({width, height: 50})
+    await page.setViewport({width: +width, height: 50})
     await page.screenshot({path, fullPage: true})
     await browser.close()
     
@@ -19,7 +19,8 @@ app.use(async ctx => {
     }
   } catch (err) {
     ctx.body = {
-      code: 201
+      code: 201,
+      message: err,
     }
   }
 })
