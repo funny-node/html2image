@@ -9,8 +9,8 @@ app.use(async ctx => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   try {
-    await page.setContent(html)
     await page.setViewport({width: +width, height: 50})
+    await page.setContent(html)
     await page.screenshot({path, fullPage: true})
     await browser.close()
     
